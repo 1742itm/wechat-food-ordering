@@ -147,8 +147,11 @@ food/
 
    然后执行 [weixin.sql](file:///c:/Users/钟鸿坤/Desktop/study/微信小程序/food/weixin.sql)。
 
-2. 修改 [application.properties](file:///c:/Users/钟鸿坤/Desktop/study/微信小程序/food/food-spring/src/main/resources/application.properties) 中的数据库账号密码、端口，
-   以及图片虚拟目录 `defaultImagesDir` / `foodImagesDir` 和 `host`（对外访问地址）。
+2. 修改 [application.properties](file:///c:/Users/钟鸿坤/Desktop/study/微信小程序/food/food-spring/src/main/resources/application.properties) 中的数据库账号密码、端口和 `host`（对外访问地址）。
+
+   图片目录 `defaultImagesDir` / `foodImagesDir` 默认已指向项目内置的 `img/` 目录（相对启动时的工作目录），
+   按 README 方式在 `food-spring` 目录下启动即可直接生效；
+   若部署到其他环境，改成实际绝对路径（需以 `/` 结尾）即可。
 
 3. **配置小程序 AppID / AppSecret（必做）**
 
