@@ -1,0 +1,72 @@
+/* 静音按钮 */
+.mute-btn {
+  position: fixed;
+  left: 20rpx;
+  top: 20rpx;
+  width: 60rpx;
+  height: 60rpx;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx;
+}
+
+/* 轮播图样式 */
+.swiper {
+  height: 350rpx;
+}
+.swiper image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 开启点餐之旅按钮 */
+.menu-bar {
+  display: flex;
+  margin-top: 20rpx;
+}
+.menu-block {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+.menu-start {
+  text-align: center;
+  font-size: 38rpx;
+  color: #fff;
+  padding: 16rpx 80rpx;
+  background: #ff9c35;
+  border-radius: 80rpx;
+}
+
+/* 广告图 */
+.ad-box {
+  margin-top: 20rpx;
+  width: 100%;
+  text-align: center;
+}
+.ad-image {
+  width: 710rpx;
+  height: 336rpx;
+}
+
+/* 底部分类 */
+.bottom-box {
+  margin: 20rpx 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.bottom-pic {
+  width: 49%;
+  display: inline-block;
+}
+.bottom-image {
+  width: 100%;
+  height: 170rpx;
+}

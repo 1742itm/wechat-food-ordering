@@ -1,0 +1,85 @@
+page {
+  background-color: #f8f8f8;
+  font-size: 32rpx;
+}
+.head {
+  width: 100%;
+  background-color: #f7982a;
+  height: 400rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.points-info {
+  margin-top: 20rpx;
+  text-align: center;
+}
+.points-label {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+.points-value {
+  font-size: 48rpx;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 8rpx;
+}
+.points-entry {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 20rpx;
+  background-color: #fff;
+  margin-bottom: 10rpx;
+}
+.entry-icon {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+.entry-text {
+  flex: 1;
+  font-size: 32rpx;
+  color: #333;
+}
+.entry-arrow {
+  font-size: 36rpx;
+  color: #ccc;
+}
+.avatar-wrapper {
+  width: 160rpx;
+  height: 160rpx;
+  padding: 0;
+  background: none;
+  border-radius: 50%;
+}
+.avatar {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+}
+.list-title {
+  background-color: #fff;
+  padding: 16rpx 0;
+  text-align: center;
+}
+.list-item {
+  display: flex;
+  padding: 42rpx 20rpx;
+  border-bottom: 1rpx solid #ececec;
+}
+.list-item-l {
+  flex: 1;
+}
+.list-item-r {
+  line-height: 76rpx;
+}
+.list-item-r > text {
+  color: #f7982a;
+  font-weight: 600;
+  font-size: 32rpx;
+}
+.list-item-time {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: #999;
+}

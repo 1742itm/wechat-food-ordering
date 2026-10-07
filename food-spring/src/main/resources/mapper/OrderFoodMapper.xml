@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="my.food.mapper.OrderFoodMapper">
+    <insert id="insertBatch" parameterType="java.util.List">
+        INSERT INTO `order_food` (`order_id`, `food_id`, `number`, `price`)
+        VALUES
+        <foreach collection="list" index="" item="orderFood" separator=",">
+            (#{orderFood.orderId},#{orderFood.foodId},
+            #{orderFood.number},#{orderFood.price})
+        </foreach>
+
+    </insert>
+</mapper>

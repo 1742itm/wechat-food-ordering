@@ -1,0 +1,49 @@
+<view class="page">
+  <view class="header">
+    <view class="header-bg"></view>
+    <view class="header-content">
+      <view class="points-label">我的积分</view>
+      <view class="points-amount">{{ points }}</view>
+      <view class="points-tip">消费1元获得1积分</view>
+    </view>
+  </view>
+
+  <view class="content">
+    <view class="section">
+      <view class="section-title">积分兑换</view>
+      <view class="goods-list">
+        <view class="goods-item" wx:for="{{ goodsList }}" wx:key="id">
+          <image class="goods-image" src="{{ item.image }}" />
+          <view class="goods-info">
+            <view class="goods-name">{{ item.name }}</view>
+            <view class="goods-desc">{{ item.desc }}</view>
+            <view class="goods-bottom">
+              <view class="goods-points">{{ item.points }}积分</view>
+              <button class="exchange-btn" bindtap="exchange" data-id="{{ item.id }}">
+                {{ item.stock > 0 ? '立即兑换' : '已兑完' }}
+              </button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">积分明细</view>
+      <view class="record-list">
+        <view class="record-item" wx:for="{{ recordList }}" wx:key="id">
+          <view class="record-left">
+            <view class="record-type">{{ item.type === 'add' ? '+' : '-' }}</view>
+            <view class="record-info">
+              <view class="record-desc">{{ item.desc }}</view>
+              <view class="record-time">{{ item.time }}</view>
+            </view>
+          </view>
+          <view class="record-right">
+            <text class="{{ item.type === 'add' ? 'add' : 'reduce' }}">{{ item.type === 'add' ? '+' : '-' }}{{ item.points }}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

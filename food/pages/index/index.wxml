@@ -1,0 +1,32 @@
+<!-- 静音按钮 -->
+<view class="mute-btn" bindtap="toggleMute">
+  <text>{{ isMuted ? '🔇' : '🔊' }}</text>
+</view>
+
+<!-- 轮播图区域 -->
+<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+  <block wx:for="{{swiper}}" wx:key="*this">
+    <swiper-item>
+      <image src="{{item}}" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 开启点餐之旅 -->
+<view class="menu-bar">
+  <view class="menu-block" bindtap="start">
+    <view class="menu-start">开启点餐之旅→</view>
+  </view>
+</view>
+
+<!-- 最新消息展示 -->
+<view class="ad-box">
+  <image src="{{ad}}" class="ad-image" />
+</view>
+
+<!-- 底部分类区域 -->
+<view class="bottom-box">
+  <view class="bottom-pic" wx:for="{{category}}" wx:key="index">
+    <image src="{{item}}" class="bottom-image" />
+  </view>
+</view>

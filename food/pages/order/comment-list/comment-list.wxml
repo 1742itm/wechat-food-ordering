@@ -1,0 +1,80 @@
+<view class="container">
+  <view class="list" wx:for="{{orderList}}" wx:key="id">
+    <view class="order-header">
+      <text>订单号：{{item.sn}}</text>
+      <text class="order-time">{{item.create_time}}</text>
+    </view>
+
+    <view class="goods-info">
+      <view class="goods-item" wx:for="{{item.order_food}}" wx:key="id">
+        <image src="{{item.image_url}}" class="goods-img"></image>
+        <view class="goods-detail">
+          <text class="goods-name">{{item.name}}</text>
+          <text class="goods-spec">x{{item.number}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="order-footer">
+      <text class="order-total">合计：¥{{item.price}}</text>
+      <view class="comment-status" bindtap="showCommentModal" data-id="{{item.id}}" data-hascomment="{{item.hasComment}}">
+        <text wx:if="{{item.hasComment}}" class="has-comment">已评价 · 修改</text>
+        <text wx:else class="no-comment">去评价</text>
+      </view>
+    </view>
+
+    <view class="comment-content" wx:if="{{item.hasComment}}">
+      <view class="comment-stars">
+        <text class="comment-star">{{1 <= item.commentInfo.star ? '★' : '☆'}}</text>
+        <text class="comment-star">{{2 <= item.commentInfo.star ? '★' : '☆'}}</text>
+        <text class="comment-star">{{3 <= item.commentInfo.star ? '★' : '☆'}}</text>
+        <text class="comment-star">{{4 <= item.commentInfo.star ? '★' : '☆'}}</text>
+        <text class="comment-star">{{5 <= item.commentInfo.star ? '★' : '☆'}}</text>
+      </view>
+      <text class="comment-text">{{item.commentInfo.content}}</text>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{orderList.length === 0}}">
+    暂无订单
+  </view>
+</view>
+
+<!-- 评价弹窗 -->
+<view class="modal" wx:if="{{showModal}}" bindtap="closeModal">
+  <view class="modal-content" catchtap="stopPropagation">
+    <view class="modal-header">
+      <text>评价订单</text>
+      <view class="modal-close" bindtap="closeModal">×</view>
+    </view>
+
+    <view class="modal-body">
+      <view class="stars-section">
+        <text class="stars-label">星级评价</text>
+        <view class="stars">
+          <text class="star {{1 <= selectedStar ? 'star-active' : 'star-inactive'}}" data-star="1" bindtap="selectStar">★</text>
+          <text class="star {{2 <= selectedStar ? 'star-active' : 'star-inactive'}}" data-star="2" bindtap="selectStar">★</text>
+          <text class="star {{3 <= selectedStar ? 'star-active' : 'star-inactive'}}" data-star="3" bindtap="selectStar">★</text>
+          <text class="star {{4 <= selectedStar ? 'star-active' : 'star-inactive'}}" data-star="4" bindtap="selectStar">★</text>
+          <text class="star {{5 <= selectedStar ? 'star-active' : 'star-inactive'}}" data-star="5" bindtap="selectStar">★</text>
+        </view>
+      </view>
+
+      <view class="content-section">
+        <text class="content-label">评价内容</text>
+        <textarea class="content-input" placeholder="请输入您的评价..." bindinput="inputContent"></textarea>
+      </view>
+    </view>
+
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="closeModal">取消</view>
+      <view class="btn-submit" bindtap="submitComment">提交评价</view>
+    </view>
+  </view>
+</view>
+
+<wxs module="priceFormat">
+module.exports = function (price) {
+  return price ? '¥ ' + parseFloat(price) : ''
+}
+</wxs>
